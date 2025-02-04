@@ -20,9 +20,13 @@ return [
     (new Extend\Notification())
         ->driver('telegram', TelegramNotificationDriver::class),
     (new Extend\Settings)
-        ->serializeToForum('nodeloc-telegram.botUsername', 'nodeloc-telegram.botUsername', )
-        ->serializeToForum('nodeloc-telegram.botToken', 'nodeloc-telegram.botToken', )
-        ->serializeToForum('nodeloc-telegram.enableNotifications', 'nodeloc-telegram.enableNotifications', 'boolval'),
+        ->serializeToForum('nodeloc-telegram.botUsername', 'nodeloc-telegram.botUsername')
+        ->serializeToForum('nodeloc-telegram.botToken', 'nodeloc-telegram.botToken')
+        ->serializeToForum('nodeloc-telegram.botUsername', 'nodeloc-telegram.enableWidget', 'boolval', true)
+        ->serializeToForum('nodeloc-telegram.botUsername', 'nodeloc-telegram.widgetSize')
+        ->serializeToForum('nodeloc-telegram.botUsername', 'nodeloc-telegram.widgetRadius', 'intval', '10')
+        ->serializeToForum('nodeloc-telegram.botUsername', 'nodeloc-telegram.widgetUserPic', 'boolval', false)
+        ->serializeToForum('nodeloc-telegram.enableNotifications', 'nodeloc-telegram.enableNotifications', 'boolval', true),
     (new Extend\Frontend('admin'))
         ->js(__DIR__.'/js/dist/admin.js'),
     (new Extend\Routes('forum'))

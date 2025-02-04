@@ -24,7 +24,8 @@
     },
     "require": {
         "flarum/core": "^1.8.0",
-        "irazasyed/telegram-bot-sdk": "^3.9"},
+        "irazasyed/telegram-bot-sdk": "^3.9"
+    },
     "extra": {
         "flarum-extension": {
             "title": "Telegram",
