@@ -13,6 +13,8 @@ return [
         ->js(__DIR__.'/js/dist/forum.js')
         ->css(__DIR__.'/resources/less/forum.less'),
     (new Extend\Locales(__DIR__ . '/resources/locale')),
+    (new Extend\View)
+        ->namespace('nikovonlas-tg-notify', __DIR__.'/views'),
     (new Extend\Event)
         ->subscribe(Driver\TelegramNotificationDriver::class)
         ->subscribe(Listeners\InjectSettings::class),

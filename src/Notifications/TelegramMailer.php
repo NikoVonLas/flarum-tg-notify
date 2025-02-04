@@ -11,7 +11,6 @@ use Illuminate\Contracts\View\Factory;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Translation\Translator;
-use Nodeloc\Telegram\Listeners\AddUserAttributes;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Telegram\Bot\Api;
 use Telegram\Bot\Exceptions\TelegramSDKException;
@@ -37,6 +36,16 @@ class TelegramMailer
     protected $view;
 
     protected  $telegramclient;
+
+    protected const VIEWS = [
+        'newPost' => 'nikovonlas-tg-notify::newPost',
+        'postMentioned' => 'nikovonlas-tg-notify::postMentioned',
+        'userMentioned' => 'nikovonlas-tg-notify::userMentioned',
+        'groupMentioned' => 'nikovonlas-tg-notify::groupMentioned',
+        'newDiscussionInTag' => 'nikovonlas-tg-notify::newDiscussionInTag',
+        'newPostInTag' => 'nikovonlas-tg-notify::newPostInTag',
+        'newDiscussionTag' => 'nikovonlas-tg-notify::newDiscussionTag'
+    ];
 
     /**
      * @param TranslatorInterface&Translator $translator
@@ -71,12 +80,19 @@ class TelegramMailer
         foreach ($users as $user) {
             if ($blueprint instanceof MailableInterface) {
                 $view = $this->pickBestView($blueprint->getEmailView());
-                $text = $this->view->make($view, compact('blueprint', 'user'))->render();
-            }else if ($blueprint instanceof BlueprintInterface) {
+                $class = get_class($blueprint);
+                $type = $class::getType();
+                if (array_key_exists($type, static::VIEWS)) {
+                    $text = $this->view->make(static::VIEWS[$type], compact('blueprint', 'user'))->render();
+                } else {
+                    $text = $this->view->make($view, compact('blueprint', 'user'))->render();
+                }
+            } else if ($blueprint instanceof BlueprintInterface) {
                 return;
-            }else{
+            } else{
                 throw new Exception('Notification not compatible with Telegram Mailer');
             }
+
             $telegram_id = $user->flagrow_telegram_id; // Assuming 'telegram_id' is the key for the user's Telegram ID in the array
             if(!$telegram_id){
                 $telegram_id = $this->getTelegramId($user);

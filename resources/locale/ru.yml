@@ -22,3 +22,32 @@ nikovonlas-tg-notify:
         settings:
             notify_by_telegram_heading: Telegram
             unblock_telegram_bot: Похоже, что вы не авторизовали или заблокировали бота Telegram. Отправьте сообщение боту <a>{username}</a>, чтобы вновь активировать оповещения
+
+    notifications:
+        newPost: |
+            {display_name} ответил(а) в дискуссии
+            [{title}]($url)
+
+        post_mentioned: |
+            {display_name} ответил(а) на Ваше сообщение (#{post_number})
+            [{title}]($url)
+
+        user_mentioned: |
+            {display_name} упомянул(а) Вас в своём сообщении
+            [{title}]($url)
+
+        group_mentioned: |
+            {display_name} упомянул(а) Вашу группу в своём сообщении
+            [{title}]($url)
+
+        newDiscussionInTag: |
+            {display_name} создал(а) новую дискуссию
+            [{title}]($url)
+
+        newPostInTag: |
+            {display_name} ответил(а) в дискуссии
+            [{title}]($url)
+
+        newDiscussionTag: |
+            {display_name} изменил тег дискуссии, автором которой является {author_display_name} на тег, на который Вы подписаны
+            [{title}]($url)

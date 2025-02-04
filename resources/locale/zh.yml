@@ -22,3 +22,32 @@ nikovonlas-tg-notify:
         settings:
             notify_by_telegram_heading: Telegram
             unblock_telegram_bot: It seems like you did not authorize or blocked the TelegramProvide bot. Send a message to <a>{username}</a> on TelegramProvide to re-enable notifications
+
+    notifications:
+        newPost: |
+            {display_name} made a post in a discussion you're following
+            [{title}]($url)
+
+        post_mentioned: |
+            {display_name} replied to your post (#{post_number})
+            [{title}]($url)
+
+        user_mentioned: |
+            {display_name} mentioned you in a post
+            [{title}]($url)
+
+        group_mentioned: |
+            {display_name} mentioned a group you're a member of
+            [{title}]($url)
+
+        newDiscussionInTag: |
+            {display_name} started a discussion in a tag you're following
+            [{title}]($url)
+
+        newPostInTag: |
+            {display_name} posted in a discussion on a tag you're following
+            [{title}]($url)
+
+        newDiscussionTag: |
+            {display_name} just changed the tag on a discussion by {author_display_name} to a tag you're following
+            [{title}]($url)
