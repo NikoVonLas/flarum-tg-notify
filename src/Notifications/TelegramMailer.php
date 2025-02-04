@@ -108,14 +108,11 @@ class TelegramMailer
             try {
                 $this->telegramclient->sendMessage([
                     'chat_id' => $telegram_id,
-                    'text' => $text
+                    'text' => $text,
+                    'parse_mode' => 'Markdown'
                 ]);
 
-                // Reset error if everything went right
-                if ($user->flagrow_telegram_error) {
-                    $user->flagrow_telegram_error = null;
-                    $user->save();
-                }
+                $user->flagrow_telegram_error = null;
             } catch (ClientException $exception) {
                 $response = $exception->getResponse();
                 if ($response && $response->getStatusCode() !== 403) {
@@ -127,10 +124,10 @@ class TelegramMailer
                 if ($json && str_contains(Arr::get($json, 'description', ''), 'blocked by the user')) {
                     $user->flagrow_telegram_error = 'blocked';
                 }
-
-                $user->save();
             } catch (TelegramSDKException $exception) {
-                $user->flagrow_telegram_error = 'unauthorized';
+                $user->flagrow_telegram_error = $exception->getMessage();
+                report($exception);
+            } finally {
                 $user->save();
             }
         }
