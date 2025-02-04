@@ -1,4 +1,4 @@
-nodeloc-telegram:
+nikovonlas-tg-notify:
     admin:
         settings:
             title: TelegramProvide Settings

@@ -1,55 +1,55 @@
 import app from 'flarum/admin/app';
 
-app.initializers.add('nodeloc-telegram', () => {
+app.initializers.add('nikovonlas-tg-notify', () => {
   app.extensionData
-    .for('nodeloc-telegram')
+    .for('nikovonlas-tg-notify')
     .registerSetting(
       {
-        setting: 'nodeloc-telegram.botUsername',
+        setting: 'nikovonlas-tg-notify.botUsername',
         type: 'text',
-        label: app.translator.trans('nodeloc-telegram.admin.settings.field.botUsername'),
+        label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.botUsername'),
       },
       15
     )
     .registerSetting(
       {
-        setting: 'nodeloc-telegram.botToken',
+        setting: 'nikovonlas-tg-notify.botToken',
         type: 'text',
-        label: app.translator.trans('nodeloc-telegram.admin.settings.field.botToken'),
+        label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.botToken'),
       },
       15
     )
     .registerSetting({
-      setting: 'nodeloc-telegram.enableWidget',
+      setting: 'nikovonlas-tg-notify.enableWidget',
       type: 'boolean',
-      label: app.translator.trans('nodeloc-telegram.admin.settings.field.enableWidget'),
+      label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.enableWidget'),
     })
     .registerSetting({
-      setting: 'nodeloc-telegram.widgetSize',
+      setting: 'nikovonlas-tg-notify.widgetSize',
       type: 'select',
-      label: app.translator.trans('nodeloc-telegram.admin.settings.field.widgetSize'),
+      label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.widgetSize'),
       options: {
-        large: app.translator.trans('nodeloc-telegram.admin.settings.field.widgetSizeLarge'),
-        medium: app.translator.trans('nodeloc-telegram.admin.settings.field.widgetSizeMedium'),
-        small: app.translator.trans('nodeloc-telegram.admin.settings.field.widgetSizeSmall'),
+        large: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.widgetSizeLarge'),
+        medium: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.widgetSizeMedium'),
+        small: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.widgetSizeSmall'),
       },
       default: 'large',
     })
     .registerSetting({
-      setting: 'nodeloc-telegram.widgetRadius',
+      setting: 'nikovonlas-tg-notify.widgetRadius',
       type: 'number',
-      label: app.translator.trans('nodeloc-telegram.admin.settings.field.widgetRadius'),
+      label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.widgetRadius'),
       min: 0,
       max: 20,
     })
     .registerSetting({
-      setting: 'nodeloc-telegram.widgetUserPic',
+      setting: 'nikovonlas-tg-notify.widgetUserPic',
       type: 'boolean',
-      label: app.translator.trans('nodeloc-telegram.admin.settings.field.widgetUserPic'),
+      label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.widgetUserPic'),
     })
     .registerSetting({
-      setting: 'nodeloc-telegram.enableNotifications',
+      setting: 'nikovonlas-tg-notify.enableNotifications',
       type: 'boolean',
-      label: app.translator.trans('nodeloc-telegram.admin.settings.field.enableNotifications'),
+      label: app.translator.trans('nikovonlas-tg-notify.admin.settings.field.enableNotifications'),
     });
 });

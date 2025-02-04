@@ -46,7 +46,7 @@ class TelegramMailer
     {
         $this->mailer = $mailer;
         $this->translator = $translator;
-        $token = $settings->get('nodeloc-telegram.botToken');
+        $token = $settings->get('nikovonlas-tg-notify.botToken');
 
         if (!$token) {
             throw new Exception('No bot token configured for TelegramProvide');

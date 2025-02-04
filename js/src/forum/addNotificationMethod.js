@@ -5,7 +5,7 @@ import SettingsPage from 'flarum/components/SettingsPage';
 
 export default function () {
   extend(NotificationGrid.prototype, 'notificationMethods', function (items) {
-    if (!app.forum.attribute('nodeloc-telegram.enableNotifications')) {
+    if (!app.forum.attribute('nikovonlas-tg-notify.enableNotifications')) {
       return;
     }
     if (!app.session || !app.session.user) {
@@ -20,11 +20,11 @@ export default function () {
     items.add('telegram', {
       name: 'telegram',
       icon: 'fab fa-telegram-plane',
-      label: app.translator.trans('nodeloc-telegram.forum.settings.notify_by_telegram_heading'),
+      label: app.translator.trans('nikovonlas-tg-notify.forum.settings.notify_by_telegram_heading'),
     });
   });
   extend(SettingsPage.prototype, 'accountItems', function (items) {
-    if (!app.forum.attribute('nodeloc-telegram.enableNotifications')) {
+    if (!app.forum.attribute('nikovonlas-tg-notify.enableNotifications')) {
       return;
     }
     if (!app.session || !app.session.user) {
@@ -35,11 +35,11 @@ export default function () {
     if (user && !user.canReceiveTelegramNotifications()) {
       // add button to link current account with telegram
       const authUrl = app.forum.attribute('baseUrl') + '/auth/telegram';
-      const botUsername = app.forum.attribute('nodeloc-telegram.botUsername');
+      const botUsername = app.forum.attribute('nikovonlas-tg-notify.botUsername');
 
       // Replace the TelegramProvide widget script
       items.add(
-        'nodeloc-telegram',
+        'nikovonlas-tg-notify',
         m('script', {
           async: true,
           src: 'https://telegram.org/js/telegram-widget.js?22',
@@ -53,7 +53,7 @@ export default function () {
     }
   });
   extend(SettingsPage.prototype, 'notificationsItems', function (items) {
-    if (!app.forum.attribute('nodeloc-telegram.enableNotifications')) {
+    if (!app.forum.attribute('nikovonlas-tg-notify.enableNotifications')) {
       return;
     }
     if (!app.session || !app.session.user) {
@@ -64,7 +64,7 @@ export default function () {
     if (!user || !user.nodelocTelegramError()) {
       return;
     }
-    const botUsername = app.forum.attribute('nodeloc-telegram.botUsername');
+    const botUsername = app.forum.attribute('nikovonlas-tg-notify.botUsername');
 
     items.add('nodelocTelegramError', {
       view() {
@@ -72,7 +72,7 @@ export default function () {
           '.Alert',
           m(
             'p',
-            app.translator.trans('nodeloc-telegram.forum.settings.unblock_telegram_bot', {
+            app.translator.trans('nikovonlas-tg-notify.forum.settings.unblock_telegram_bot', {
               a: m('a', { href: 'https://t.me/' + botUsername }),
               username: '@' + botUsername,
             })

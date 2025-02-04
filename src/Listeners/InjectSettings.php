@@ -23,8 +23,8 @@ class InjectSettings
     public function settings(Serializing $event)
     {
         if ($event->serializer instanceof ForumSerializer) {
-            $event->attributes['nodeloc-telegram.enableNotifications'] = (bool)$this->settings->get('nodeloc-telegram.enableNotifications');
-            $event->attributes['nodeloc-telegram.botUsername'] = $this->settings->get('nodeloc-telegram.botUsername');
+            $event->attributes['nikovonlas-tg-notify.enableNotifications'] = (bool)$this->settings->get('nikovonlas-tg-notify.enableNotifications');
+            $event->attributes['nikovonlas-tg-notify.botUsername'] = $this->settings->get('nikovonlas-tg-notify.botUsername');
         }
     }
 }

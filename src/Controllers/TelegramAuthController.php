@@ -28,7 +28,7 @@ class TelegramAuthController implements RequestHandlerInterface
         $this->settings = $settings;
         $this->url = $url;
 
-        $token = $settings->get('nodeloc-telegram.botToken');
+        $token = $settings->get('nikovonlas-tg-notify.botToken');
 
         if (!$token) {
             throw new Exception('No bot token configured for TelegramProvide');
@@ -113,7 +113,7 @@ class TelegramAuthController implements RequestHandlerInterface
         }
         sort($data_check_arr);
         $data_check_string = implode("\n", $data_check_arr);
-        $secret_key = hash('sha256', $this->settings->get('nodeloc-telegram.botToken'), true);
+        $secret_key = hash('sha256', $this->settings->get('nikovonlas-tg-notify.botToken'), true);
         $hash = hash_hmac('sha256', $data_check_string, $secret_key);
         if (strcmp($hash, $check_hash) !== 0) {
             throw new Exception('Data is NOT from TelegramProvide');
