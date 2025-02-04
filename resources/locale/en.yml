@@ -7,6 +7,13 @@ nodeloc-telegram:
                 botUsername: Bot Username
                 botToken: Bot Token
                 enableNotifications: Enable Notifications
+                enableWidget: Enable Login Widget
+                widgetSize: Button Size
+                widgetSizeLarge: Large
+                widgetSizeMedium: Medium
+                widgetSizeSmall: Small
+                widgetRadius: Button Radius
+                widgetUserPic: Show User Photo
 
     forum:
         log_in_with_telegram_button: Log in with Telegram

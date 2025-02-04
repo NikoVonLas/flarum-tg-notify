@@ -1,0 +1,24 @@
+nodeloc-telegram:
+    admin:
+        settings:
+            title: Настройки Telegram
+
+            field:
+                botUsername: Bot Username
+                botToken: Bot Token
+                enableNotifications: Включить функцию оповещений
+                enableWidget: Включить виджет логина
+                widgetSize: Размер кнопки виджета
+                widgetSizeLarge: Большой
+                widgetSizeMedium: Средний
+                widgetSizeSmall: Маленький
+                widgetRadius: Радиус кнопки виджета
+                widgetUserPic: Показывать аватар
+
+    forum:
+        log_in_with_telegram_button: Войти через Telegram
+        link_telegram_button: Подключить Telegram
+
+        settings:
+            notify_by_telegram_heading: Telegram
+            unblock_telegram_bot: Похоже, что вы не авторизовали или заблокировали бота Telegram. Отправьте сообщение боту <a>{username}</a>, чтобы вновь активировать оповещения
