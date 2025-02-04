@@ -1,5 +1,5 @@
 {
-    "name": "nodeloc/telegram",
+    "name": "nikovonlas/flarum-tg-notify",
     "description": "Telegram login and notifications for Flarum",
     "keywords": [
         "extension",
