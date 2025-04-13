@@ -1,10 +1,11 @@
 {
-    "name": "nikovonlas/flarum-tg-notify",
-    "description": "Telegram login and notifications for Flarum",
+    "name": "nikovonlas/flarum-ext-tg-notify",
+    "description": "Telegram login and/or notifications for Flarum",
     "keywords": [
         "extension",
         "flarum",
         "nodeloc",
+        "telegram",
         "telegram",
         "auth",
         "notifications"
@@ -16,15 +17,18 @@
             "name": "JameSupeReal",
             "email": "james@nodeloc.com",
             "homepage": "https://www.nodeloc.com/"
+        },
+        {
+            "name": "NikoVonLas",
+            "email": "niko@antiit.ru"
         }
     ],
     "support": {
-        "issues": "https://github.com/nodeloc/telegram/issues",
-        "source": "https://github.com/nodeloc/telegram"
+        "issues": "https://github.com/nikovonlas/flarum-tg-notify/issues",
+        "source": "https://github.com/nikovonlas/flarum-tg-notify"
     },
     "require": {
         "flarum/core": "^1.8.0",
-        "guzzlehttp/promises": "^1.5",
         "irazasyed/telegram-bot-sdk": "^3.9"
     },
     "extra": {
